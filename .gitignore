@@ -1,3 +1,13 @@
+# ModEM Executables and files
+Mod2DMT
+Mod3DMT
+fwd.BLOCK2.dat
+fwd.BLOCK3.dat
+Modular_NLCG*
+BLOCK2_NLCG*
+Nodes_Status_*
+*.esoln
+
 # Prerequisites
 *.d
 
@@ -30,3 +40,6 @@
 *.exe
 *.out
 *.app
+
+# OS Specific Files
+*.DS_STORE

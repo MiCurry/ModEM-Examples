@@ -1,2 +1,3 @@
 # ModEM-Examples
-Basic Eamples for ModEM-Model
+
+A collection of examples for using ModEM.
