@@ -77,6 +77,10 @@ are respected
 
 ### Dipole1D Configuration
 
+> **WARNING:** It appears that the Dipole1D has issues when running with MPI at
+> this time. Thus, if you would like to use MPI and CSEM please use EM1D
+> instead.
+
 To configure a ModEM executable that uses Dipole1D, you can use the following
 configuration:
 
@@ -138,6 +142,10 @@ $ ./CONFIG/Configure gfortran Makefile Release Serial SP2 MT+CSEM EM1D
 [fftw]: https://www.fftw.org/
 
 ### Dipole1D+EM1D Configuration
+
+> **WARNING:** It appears that the Dipole1D has issues when running with MPI at
+> this time. Thus, if you would like to use MPI and CSEM please use EM1D
+> instead.
 
 To run with both Dipole1D+EM1D, you will similarly you will need to set the
 FFTW variable in order to run the EM1D:
