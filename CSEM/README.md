@@ -3,8 +3,8 @@ Controlled Source Electromagnetic (CSEM) Examples
 
 > **IMPORTANT NOTES**: Important notes on the CSEM Version of ModEM
 >
-> The EM1D code associated with CSEM has ben scrubbed from the repository as
-> it contained propitary source code that cannot be released under an
+> The EM1D source code associated with CSEM has been removed from the repository
+> as it contained propitary source code that cannot be released under an
 > open-source license. We hope to have an updated EM1D version avialble for
 > open-source released by the end of summer 2025.
 >
@@ -16,7 +16,7 @@ Controlled Source Electromagnetic (CSEM) Examples
 > been well validated. The examples below work well with EM1D, but not with
 > Dipole1D. Other configurations might perform better for Dipole1D, but
 > results should be considered experimental unless more work can be done
-> to validate results.
+> to validate results in a meaniningful way.
 >
 > We are still providing the CSEM version as is as it could be a good starting
 > place for future ModEM CSEM work. 
@@ -54,7 +54,6 @@ $ git checkout CSEM
 branch 'CSEM' set up to track 'origin/CSEM'.
 Switched to a new branch 'CSEM'
 ```
-
 [modem-model]: https://github.com/MiCurry/ModEM-Model/
 
 ## Configuring ModEM CSEM version
@@ -118,9 +117,9 @@ Passing 'Yes/yes/Y/y' will automatically download and extract Dipole1D into the
 correct location.
 
 If there are problems with the download script, or you would like to download
-Dipole1D by yourself, you can download Dipole1D yourself and extract the source
-code into: `src/3D_MT/CSEM_module/Dipole1D`. (i.e. ensure that `Dipole1D.f90`
-and other Dipole1D.f90 files are in `src/3D_MT/CSEM_module/Dipole1D`).
+Dipole1D by yourself, you can download Dipole1D and extract the source code
+into: `src/3D_MT/CSEM_module/Dipole1D`. (i.e. ensure that `Dipole1D.f90` and
+other Dipole1D.f90 files are in `src/3D_MT/CSEM_module/Dipole1D`).
 
 After downloading CSEM (Via the script), you'll get the following message:
 
@@ -208,6 +207,8 @@ $ ./Mod3DMT -I m0.rho dTest.dat 1e4 1e-6 mTrue.cov
 
 > **Note:** The inversion may take a siginificant amount of time to run
 > to get a RMS near 1.0. In my test it took about 130 iterations.
+
+We have included an example log and ending rho file using the above parameters.
 
 ## Example 1 and 2
 
