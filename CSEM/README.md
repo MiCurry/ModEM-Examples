@@ -206,6 +206,9 @@ file provided:
 $ ./Mod3DMT -I m0.rho dTest.dat 1e4 1e-6 mTrue.cov
 ```
 
+> **Note:** The inversion may take a siginificant amount of time to run
+> to get a RMS near 1.0. In my test it took about 130 iterations.
+
 ## Example 1 and 2
 
 This is a slightly bigger CSEM example, The model parameter fila "mTrue.rho" is
@@ -223,6 +226,9 @@ minimum (as distance between Tx and Rx grows, E amplitudes become  very small!)
 
 You will be able to run the forward and inversion in similar ways to what
 is described above.
+
+> **Note:** The inversion may take a siginificant amount of time to run
+> to get a RMS near 1.0. In my test it took about ~270 iterations.
 
 # Creating your own Covariance files
 
