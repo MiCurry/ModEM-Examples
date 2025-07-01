@@ -1,6 +1,26 @@
 Controlled Source Electromagnetic (CSEM) Examples
 =================================================
 
+> **IMPORTANT NOTES**: Important notes on the CSEM Version of ModEM
+>
+> The EM1D code associated with CSEM has ben scrubbed from the repository as
+> it contained propitary source code that cannot be released under an
+> open-source license. We hope to have an updated EM1D version avialble for
+> open-source released by the end of summer 2025.
+>
+> The EM1D code works well below with the examples given, however, work has not
+> been done to validate the results of ModEM+EM1D and results should be
+> considered experimental.
+>
+> The Dipole1D version of the code is able to run, but the results have not
+> been well validated. The examples below work well with EM1D, but not with
+> Dipole1D. Other configurations might perform better for Dipole1D, but
+> results should be considered experimental unless more work can be done
+> to validate results.
+>
+> We are still providing the CSEM version as is as it could be a good starting
+> place for future ModEM CSEM work. 
+
 ModEM can run on CSEM data by using the [CSEM branch of the
 ModEM-Model][csem-branch] repository (which we hope to merge into the main
 branch soon). This README will walk you through using ModEM to run these
@@ -77,9 +97,10 @@ are respected
 
 ### Dipole1D Configuration
 
-> **WARNING:** It appears that the Dipole1D has issues when running with MPI at
-> this time. Thus, if you would like to use MPI and CSEM please use EM1D
-> instead.
+> **WARNING/NOTE:** It appears at this time that the examples below do not run
+> well with Dipole1D as they were made to run with EM1D. It is possible that the
+> Dipole1D does not produce good results at this time. However, we are still
+> providing the Dipole1D instructions/interface for future development and work.
 
 To configure a ModEM executable that uses Dipole1D, you can use the following
 configuration:
@@ -120,6 +141,14 @@ The last warning message can be ignored because we did not request EM1D.
 
 ### EM1D Configuration
 
+> **NOTE:** The EM1D code that CSEM version of ModEM uses in the CSEM version of
+> the ModEM CSEM branch is currently not able to be included in an open source
+> release.
+>
+> Work is being done to replace properitary code with open source code so the EM1D
+> version can be released. Tenetaivley we hope to have this version avaliable by
+> the end of summer 2025. 
+
 In order to run the EM1D version of ModEM, you will need to include the location
 of the [FFTW library][fftw] installation. To do so you can pass the installation
 in the `FFTW` environment variable:
@@ -140,40 +169,6 @@ $ ./CONFIG/Configure gfortran Makefile Release Serial SP2 MT+CSEM EM1D
 ```
 
 [fftw]: https://www.fftw.org/
-
-### Dipole1D+EM1D Configuration
-
-> **WARNING:** It appears that the Dipole1D has issues when running with MPI at
-> this time. Thus, if you would like to use MPI and CSEM please use EM1D
-> instead.
-
-To run with both Dipole1D+EM1D, you will similarly you will need to set the
-FFTW variable in order to run the EM1D:
-
-```
-$ export FFTW=/path/to/FFTW_INSTALL/
-$ ./CONFIG/Configure gfortran Makefile Release Serial SP2 MT+CSEM Dipole1D+EM1D
-```
-
-### Cray system?
-
-If you're using a Cray System, you can use the FC variable during your
-configuration script to change the name of the compiler to use for your
-makefile:
-
-```
-$ export FC=ftn
-$ ./CONFIG/Configure gfortran Makefile Release Serial SP2 MT+CSEM Dipole1D
-```
-
-### Making 
-
-Once our Makefile is created we can rename it to Makefile, if we named it
-something other than Makefile and then call make:
-
-```
-make
-```
 
 # Examples
 
@@ -208,7 +203,7 @@ To run the inversion, you will need use the prior model and the covariance
 file provided:
 
 ```bash
-$ ./Mod3DMT -I prior.25ohms.rho dTest.dat 1e1 1e-6 mTrue.cov
+$ ./Mod3DMT -I m0.rho dTest.dat 1e4 1e-6 mTrue.cov
 ```
 
 ## Example 1 and 2
@@ -240,17 +235,17 @@ instructing).
 
 [pymodem]: https://github.com/MiCurry/ModEM-Tools/tree/main/python/PyModEM
 
-Run `modem_cov` with the `-m/--mask_water` to mask using the default value of 0.3
-ohms:
+Let's create a covariance file where we set the x, y and z smoothing to be `0.3`
+and where we mask water (values that match ln(0.3) +/- 0.00005.):
 
 ```bash
-$ modem_cov mTrue.rho --mask_water
+$ modem_cov mTrue.rho --mask_water -s 0.3 0.3 -z 0.3 -n 1
 ```
 
 You can also specify different values of water conductivity to mask.
 
 ```bash
-$ modem_cov mTrue.rho --mask_water --water_cond 0.5
+$ modem_cov mTrue.rho --mask_water --water_cond 0.5 -s 0.3 0.3 -z 0.3 -n 1
 ```
 
 If you have troubles or difficulties masking the value of water, try changing 
