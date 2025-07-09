@@ -1,0 +1,23 @@
+Parametrization: harmonic
+Output filename: 01_hemiWE_1x1_SFF
+Level of output: full
+What to compute: responses
+Secondary field: yes
+Thinsheet file : d01x01_hemi_WE_gm.cond
+Numerical grid : d01x01.grd
+Base model info: benchmark_1D_pr.prm
+Parameters info: benchmark_1D.prm
+Periods in days: benchmark.per
+External source: source_p10.prm
+Interior source: none
+Forward control: solver.ctrl
+Adjoint control: adjoint.ctrl
+Inverse control: inverse.ctrl
+Radii to output: benchmark.rad
+Obs coordinates: benchmark_dummy.coords
+Functional info: C.func
+C response data: benchmark_dummy.cdat
+D response data: none
+Field data file: none
+Field reference: none
+

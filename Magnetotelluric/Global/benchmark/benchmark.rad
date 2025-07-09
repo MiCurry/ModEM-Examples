@@ -1,0 +1,5 @@
+# The list of grid radii (km) at which the full output is required
+CELL
+2
+6771.0
+6371.0
