@@ -1,0 +1,6 @@
+ #Dummy data file for benchmark forward modelling: 1D responses with 5% errors
+ #Period Code GM_Lon GM_Lat Real(km) Imag(km) Error(km)
+ 16.0         AAA   151.5430       33.40500       828.0282      -215.7967      45.306    
+  4.0         AAA   151.5430       33.40500       712.6392      -138.1135      38.947    
+  1.0         AAA   151.5430       33.40500       618.9412      -142.5494      34.421    
+  0.25        AAA   151.5430       33.40500       463.0391      -168.8835      27.185     
