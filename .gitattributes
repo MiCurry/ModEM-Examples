@@ -1,1 +1,4 @@
+## GitHub Linguist control
+
+# Ensure .ws files are not detected as 'Witcher Script'
 *.ws -linguist-detectable
