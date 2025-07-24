@@ -25,7 +25,8 @@ Then you should be able to run the example:
 ## More Information
 
 For more information, see the [Releated Repositories](#related-repositories).
-The [ModEM User's Guide][ModEM-Users-Guide] also contains
+The [ModEM User's Guide][ModEM-Users-Guide] also contains more information for
+running ModEM.
 
 [ModEM-Users-Guide]: https://github.com/MiCurry/ModEM-Model/blob/main/doc/userguide/ModEM_UserGuide.pdf
 
